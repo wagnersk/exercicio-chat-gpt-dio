@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Eventos de Progresso</title>
+</head>
+<body>
+    <script>
+        var xhr = new XMLHttpRequest();
+        xhr.open('GET', 'your-file.txt', true);
+
+        xhr.addEventListener('loadstart', function() {
+            console.log('Início do carregamento');
+        });
+        
+        xhr.addEventListener('progress', function(event) {
+            if (event.lengthComputable) {
+                var percentComplete = (event.loaded / event.total) * 100;
+                console.log('Progresso do carregamento: ' + percentComplete.toFixed(2) + '%');
+            }
+        });
+
+        xhr.addEventListener('load', function() {
+            if (xhr.status === 200) {
+                console.log('Arquivo carregado com sucesso');
+            }
+        });
+
+        xhr.send();
+    </script>
+</body>
+</html>

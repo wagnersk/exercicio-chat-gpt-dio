@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Evento de Transição</title>
+    <style>
+        #transitionBox {
+            width: 100px;
+            height: 100px;
+            background-color: blue;
+            transition: width 2s;  /* Transição aplicada à largura */
+        }
+        #transitionBox:hover {
+            width: 200px;  /* Largura do elemento quando o mouse passa por cima */
+        }
+    </style>
+</head>
+<body>
+    <div id="transitionBox"></div>
+    <script>
+        var box = document.getElementById('transitionBox');
+        box.addEventListener('transitionend', function(event) {
+            console.log('Transição finalizada para a propriedade', event.propertyName);
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Eventos de Mídia</title>
+</head>
+<body>
+    <video id="myVideo" width="320" height="240" controls>
+        <source src="movie.mp4" type="video/mp4">
+        Seu navegador não suporta vídeo HTML5.
+    </video>
+    <script>
+        var video = document.getElementById('myVideo');
+        video.addEventListener('play', function() {
+            console.log('Vídeo iniciado');
+        });
+        video.addEventListener('pause', function() {
+            console.log('Vídeo pausado');
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Evento Drag & Drop</title>
+    <style>
+        #dragItem {
+            width: 100px;
+            height: 100px;
+            background-color: #4CAF50;
+            color: white;
+            line-height: 100px;
+            text-align: center;
+            font-size: 20px;
+            cursor: pointer;
+        }
+        #dropZone {
+            width: 300px;
+            height: 300px;
+            border: 3px dashed #009688;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div id="dragItem" draggable="true">Arraste-me</div>
+    <div id="dropZone">Solte aqui</div>
+
+    <script>
+        var dragItem = document.getElementById('dragItem');
+        var dropZone = document.getElementById('dropZone');
+
+        // Eventos para o item arrastável
+        dragItem.addEventListener('dragstart', function(event) {
+            event.dataTransfer.setData('text', event.target.id);  // Armazena o ID do elemento arrastável
+            console.log('Início do arrasto');
+        });
+
+        dragItem.addEventListener('dragend', function(event) {
+            console.log('Arrasto finalizado');
+        });
+
+        // Eventos para a zona de soltura
+        dropZone.addEventListener('dragover', function(event) {
+            event.preventDefault();  // Necessário para permitir a soltura
+            console.log('Elemento sobre a zona de soltura');
+        });
+
+        dropZone.addEventListener('dragenter', function(event) {
+            event.target.style.background = '#B2DFDB';  // Muda a cor de fundo ao entrar na zona de soltura
+            console.log('Drag entered');
+        });
+
+        dropZone.addEventListener('dragleave', function(event) {
+            event.target.style.background = '';  // Restaura a cor de fundo ao sair da zona de soltura
+            console.log('Drag left');
+        });
+
+        dropZone.addEventListener('drop', function(event) {
+            event.preventDefault();  // Impede a ação padrão
+            var data = event.dataTransfer.getData('text');
+            var draggedElement = document.getElementById(data);
+            event.target.appendChild(draggedElement);  // Move o item arrastado para a zona de soltura
+            event.target.style.background = '';  // Restaura a cor de fundo após soltar
+            console.log('Elemento solto');
+        });
+    </script>
+</body>
+</html>

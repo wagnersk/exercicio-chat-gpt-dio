@@ -1,0 +1,17 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Evento Keydown Global</title>
+</head>
+<body>
+    <p>Digite algo em qualquer lugar da página para registrar a tecla pressionada.</p>
+    <script>
+        // Adicionando ouvinte ao objeto document
+        document.addEventListener('keypress', function(event) {
+  console.log('Caractere pressionado:', event.key);
+});
+
+    </script>
+</body>
+</html>

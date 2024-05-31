@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Evento de Envio de Formulário</title>
+</head>
+<body>
+    <form id="myForm">
+        <input type="text" name="name" required>
+        <button type="submit">Enviar</button>
+    </form>
+      <script>
+    document.getElementById('myInput').addEventListener('invalid', function() {
+    console.log('Valor inválido');
+    });
+
+    </script>
+</body>
+</html>

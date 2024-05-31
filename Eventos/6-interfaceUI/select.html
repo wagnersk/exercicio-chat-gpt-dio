@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Evento Select</title>
+</head>
+<body>
+    <input type="text" value="Selecione este texto para testar o evento select.">
+    <script>
+        var input = document.querySelector('input');
+        input.addEventListener('select', function() {
+            console.log('Texto selecionado:', window.getSelection().toString());
+        });
+    </script>
+</body>
+</html>
