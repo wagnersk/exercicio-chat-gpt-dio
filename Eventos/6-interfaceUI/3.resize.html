@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Resize Event Example</title>
+    <style>
+        #resizeBox {
+            width: 50%; /* Largura inicial de 50% da janela */
+            height: 100px;
+            background-color: lightblue;
+            transition: width 0.5s ease; /* Suaviza a transição de tamanho */
+        }
+    </style>
+</head>
+<body>
+    <div id="resizeBox">Redimensione a janela do navegador</div>
+
+    <script>
+        function resizeHandler() {
+            var width = window.innerWidth;
+            var newWidth = Math.max(50, width * 0.5); // Calcula 50% da largura da janela, mas não menos que 50px
+            document.getElementById('resizeBox').style.width = newWidth + 'px';
+            console.log('Janela redimensionada para:', width, 'px');
+        }
+
+        window.addEventListener('resize', resizeHandler);
+
+        // Chamada inicial para ajustar o tamanho ao carregar a página
+        resizeHandler();
+    </script>
+</body>
+</html>

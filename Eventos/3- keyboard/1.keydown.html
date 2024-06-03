@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Evento Keydown</title>
+</head>
+<body>
+    <p>Pressione qualquer tecla e veja o console para o tipo de tecla pressionada.</p>
+    <script>
+        document.addEventListener('keydown', function(event) {
+            console.log(`Tecla pressionada: ${event.key}, Código da tecla: ${event.code}`);
+            // Exemplos de ações condicionais baseadas na tecla pressionada
+            if (event.key === 'ArrowUp') {
+                console.log('Seta para cima pressionada');
+            } else if (event.key === 'ArrowDown') {
+                console.log('Seta para baixo pressionada');
+            } else if (event.key === 'Enter') {
+                console.log('Tecla Enter pressionada');
+            }
+            // Prevenir ação padrão de teclas específicas
+            if (event.key === ' ' || event.key === 'Spacebar') { // Espaço
+                event.preventDefault();
+                console.log('Ação padrão da tecla espaço foi prevenida.');
+                //Para teclas como a tecla de espaço, que normalmente rolam a página
+                // para baixo, event.preventDefault() é chamado para evitar essa ação
+                // padrão. Isso é útil em situações onde a tecla de espaço é destinada
+                // a outra função, como pausar um jogo.
+            }
+        });
+    </script>
+</body>
+</html>

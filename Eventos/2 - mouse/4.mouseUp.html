@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Evento de Clique</title>
+</head>
+<body>
+    <button id="myButton">Clique em mim, evento ao soltar o botão</button>
+    <script>
+        const mouseElement = document.getElementById('myButton')
+        mouseElement.addEventListener('mouseup', function() {
+        console.log('Botão do mouse liberado');
+        });
+    </script>
+</body>
+</html>

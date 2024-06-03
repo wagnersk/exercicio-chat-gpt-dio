@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Eventos de Service Worker</title>
+</head>
+<body>
+    <script>
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('/sw.js')
+            .then(function(registration) {
+                console.log('Service Worker registrado com sucesso com escopo:', registration.scope);
+            })
+            .catch(function(error) {
+                console.log('Falha ao registrar o Service Worker:', error);
+            });
+
+            navigator.serviceWorker.addEventListener('message', function(event) {
+                console.log('Mensagem recebida do Service Worker:', event.data);
+            });
+        }
+    </script>
+</body>
+</html>

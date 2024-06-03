@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Evento Input</title>
+</head>
+<body>
+    <label for="inputField">Digite algo:</label>
+    <input type="text" id="inputField" placeholder="Comece a digitar...">
+    <div id="output">Aqui aparecerá o que você digitar.</div>
+
+    <script>
+        document.getElementById('inputField').addEventListener('input', function() {
+            // Atualiza o texto na div 'output' com o que está sendo digitado no campo de entrada
+            document.getElementById('output').textContent = 'Você digitou: ' + this.value;
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Evento de Envio de Formulário</title>
+</head>
+<body>
+    <form id="myForm">
+        <input type="text" id="nameInput" name="name" placeholder="Digite seu nome" required>
+        <button type="submit">Enviar</button>
+    </form>
+    <script>
+        document.getElementById('myForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Previne o comportamento padrão de submissão do formulário
+            var name = document.getElementById('nameInput').value;
+            console.log('Nome submetido:', name);
+            alert('Formulário enviado com sucesso! Nome: ' + name);
+        });
+    </script>
+</body>
+</html>

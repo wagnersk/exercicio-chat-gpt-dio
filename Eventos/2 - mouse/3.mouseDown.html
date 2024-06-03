@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Evento de Clique</title>
+</head>
+<body>
+    <button id="myButton">Clique em mim, evento ao clicar.</button>
+    <script>
+        const mouseElement = document.getElementById('myButton')
+        mouseElement.addEventListener('mousedown', function(event) {
+        console.log('Botão do mouse pressionado:', event.button); 
+        // 0 para botão esquerdo, 1 para meio, 2 para direito
+        });
+    </script>
+</body>
+</html>

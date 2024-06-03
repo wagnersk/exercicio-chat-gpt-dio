@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Imagem com Efeito de Zoom</title>
+    <style>
+        #myImage {
+            width: 100%; /* Largura inicial */
+            transition: transform 0.5s ease; /* Transição suave para o zoom */
+        }
+        .zoomed {
+            transform: scale(1.5); /* Aumenta a imagem em 50% quando clicada */
+        }
+    </style>
+</head>
+<body>
+    <img id="myImage" src="https://via.placeholder.com/600" alt="Imagem Placeholder">
+
+    <script>
+        var img = document.getElementById('myImage');
+        
+        img.addEventListener('load', function() {
+            console.log('Imagem completamente carregada e pronta para interação');
+            // Permite interação após a imagem estar carregada
+            img.addEventListener('click', function() {
+                // Alterna a classe para aplicar ou remover o zoom
+                this.classList.toggle('zoomed');
+            });
+        });
+
+        img.addEventListener('error', function() {
+            console.log('Erro ao carregar a imagem');
+            // Opcionalmente, substitua a imagem por 
+            // uma imagem de erro padrão ou um texto
+        });
+    </script>
+</body>
+</html>

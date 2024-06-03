@@ -2,31 +2,65 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Eventos de Progresso</title>
+    <title>Media Loading Events Example</title>
 </head>
 <body>
+    <iframe id="myVideo" width="560" height="315" src="https://www.youtube.com/embed/JXK6EDCwVDI" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    <div id="loadingIndicator" style="color: red;">Carregando vídeo...</div>
+    <p id="progressInfo"></p>
+
     <script>
-        var xhr = new XMLHttpRequest();
-        xhr.open('GET', 'your-file.txt', true);
+        var video = document.getElementById('myVideo');
+        var loadingIndicator = document.getElementById('loadingIndicator');
+        var progressInfo = document.getElementById('progressInfo');
 
-        xhr.addEventListener('loadstart', function() {
-            console.log('Início do carregamento');
-        });
-        
-        xhr.addEventListener('progress', function(event) {
-            if (event.lengthComputable) {
-                var percentComplete = (event.loaded / event.total) * 100;
-                console.log('Progresso do carregamento: ' + percentComplete.toFixed(2) + '%');
-            }
-        });
+        // Mostra o indicador de carregamento enquanto o iframe está carregando
+        video.onload = function() {
+            console.log('Vídeo completamente carregado');
+            loadingIndicator.style.display = 'none';
+        };
 
-        xhr.addEventListener('load', function() {
-            if (xhr.status === 200) {
-                console.log('Arquivo carregado com sucesso');
-            }
-        });
+        video.onerror = function() {
+            console.log('Erro ao carregar o vídeo');
+            loadingIndicator.style.display = 'none';
+            progressInfo.textContent = 'Erro no carregamento do vídeo.';
+        };
 
-        xhr.send();
-    </script>
+        // Não é possível capturar eventos de 'progress', 'abort', ou 'canplay' através de um iframe do YouTube
+  
+    video.addEventListener('loadstart', function() {
+        loadingIndicator.style.display = 'block';
+        console.log('Início do carregamento do vídeo');
+    });
+
+    video.addEventListener('load', function() {
+        console.log('Vídeo completamente carregado');
+        loadingIndicator.style.display = 'none';
+    });
+
+    video.addEventListener('abort', function() {
+        console.log('Carregamento do vídeo foi abortado');
+        loadingIndicator.style.display = 'none';
+        progressInfo.textContent = 'Carregamento abortado.';
+    });
+
+    video.addEventListener('error', function() {
+        console.log('Erro ao carregar o vídeo');
+        loadingIndicator.style.display = 'none';
+        progressInfo.textContent = 'Erro no carregamento do vídeo.';
+    });
+
+    video.addEventListener('canplay', function() {
+        console.log('Vídeo pronto para ser reproduzido');
+    });
+
+
+
+    
+</script>
+
+
+
+
 </body>
 </html>

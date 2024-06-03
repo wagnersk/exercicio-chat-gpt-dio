@@ -36,7 +36,7 @@
         // Eventos para o item arrastável
         dragItem.addEventListener('dragstart', function(event) {
             event.dataTransfer.setData('text', event.target.id);  // Armazena o ID do elemento arrastável
-            console.log('Início do arrasto');
+            console.log('Início do arrasto',event.target.id )
         });
 
         dragItem.addEventListener('dragend', function(event) {

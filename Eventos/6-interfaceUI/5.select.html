@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Evento Select</title>
+</head>
+<body>
+    <label for="textInput">Digite e selecione parte do texto:</label>
+    <input type="text" id="textInput" value="Experimente selecionar este texto">
+    <p id="log"></p>
+
+    <script>
+        document.getElementById('textInput').addEventListener('select', function() {
+            var start = this.selectionStart; // Início da seleção
+            var end = this.selectionEnd; // Fim da seleção
+            var selectedText = this.value.substring(start, end); // Texto selecionado
+            document.getElementById('log').textContent = 'Texto selecionado: "' + selectedText + '"';
+        });
+    </script>
+</body>
+</html>

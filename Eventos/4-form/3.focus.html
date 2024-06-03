@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Evento Focus</title>
+    <style>
+        input[type="text"] {
+            width: 200px;
+            height: 30px;
+            border: 1px solid #ccc;
+            transition: background-color 0.3s ease;
+        }
+        input[type="text"]:focus {
+            background-color: #eef9ff; /* Cor de fundo ao receber foco */
+        }
+    </style>
+</head>
+<body>
+    <form>
+        <label for="username">Nome de usuário:</label>
+        <input type="text" id="username" name="username" placeholder="Digite seu nome">
+        <br><br>
+        <label for="email">Email:</label>
+        <input type="text" id="email" name="email" placeholder="Digite seu email">
+    </form>
+    <script>
+        // Adiciona o evento focus para cada campo de entrada
+        document.getElementById('username').addEventListener('focus', function() {
+            console.log('Campo de nome de usuário recebeu foco');
+        });
+
+        document.getElementById('email').addEventListener('focus', function() {
+            console.log('Campo de email recebeu foco');
+        });
+    </script>
+</body>
+</html>

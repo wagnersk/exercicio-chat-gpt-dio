@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Unload Event Example</title>
+</head>
+<body>
+    <h1>Teste de Evento Unload</h1>
+    <p>Este exemplo demonstra o uso do evento unload para realizar ações quando a página é fechada ou recarregada.</p>
+    
+    <script>
+        window.addEventListener('unload', function() {
+            console.log('Descarregando a página...');
+
+            // Note: Muitas ações, como solicitações síncronas e alterações de interface, não são permitidas aqui
+            // Exemplo de ação permitida:
+            navigator.sendBeacon('/log', 'Descarregando a página');
+        });
+    </script>
+</body>
+</html>

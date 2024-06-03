@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Beforeunload Event Example</title>
+</head>
+<body>
+    <script>
+        window.addEventListener('beforeunload', function(event) {
+            event.preventDefault();
+            event.returnValue = '';
+            console.log('Página prestes a ser descarregada');
+            return '';
+        });
+    </script>
+</body>
+</html>

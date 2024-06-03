@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Evento de Clique</title>
+</head>
+<body>
+    <button id="myButton">Passe o mouse sobre o botão, evento em realtime X e Y</button>
+    <script>
+        const mouseElement = document.getElementById('myButton')
+        mouseElement.addEventListener('mousemove', function(event) {
+        console.log('Posição do mouse:', event.clientX, event.clientY);
+     });
+    </script>
+</body>
+</html>

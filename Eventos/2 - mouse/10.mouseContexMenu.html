@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Evento de Clique</title>
+</head>
+<body>
+    <button id="myButton">Clique em mim com o segundo botão do mouse</button>
+        <script>
+            const mouseElement = document.getElementById('myButton')
+            mouseElement.addEventListener('contextmenu', function(event) {
+            event.preventDefault(); 
+            // Previne o menu de contexto padrão do navegador
+            console.log('Menu de contexto acionado');
+            });
+       </script>
+</body>
+</html>

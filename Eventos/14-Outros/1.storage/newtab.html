@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Nova Aba - Storage Listener</title>
+</head>
+<body>
+    <h1>Escutador de Mudanças no Storage</h1>
+    <div id="storageContent">Aguardando mudanças...</div>
+
+    <script>
+        window.addEventListener('storage', function(event) {
+            if (event.key === 'myKey') {
+                document.getElementById('storageContent').innerText = 'Novo valor de myKey: ' + event.newValue;
+                console.log('Mudança no storage detectada:', event);
+            }
+        });
+
+        // Carregar o valor inicial do localStorage
+        document.getElementById('storageContent').innerText = 'Valor inicial de myKey: ' + localStorage.getItem('myKey');
+    </script>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>MouseLeave vs MouseOut</title>
+    <style>
+        #parent {
+            width: 300px;
+            height: 300px;
+            background-color: lightblue;
+            position: relative;
+            padding: 20px;
+        }
+        #child {
+            width: 100px;
+            height: 100px;
+            background-color: salmon;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+    </style>
+</head>
+<body>
+    <div id="parent">
+        Mouse sobre mim e meu filho
+        <div id="child"></div>
+    </div>
+
+    <script>
+        document.getElementById('parent').addEventListener('mouseleave', function() {
+            console.log('Mouse LEAVE no parent');
+        });
+        document.getElementById('parent').addEventListener('mouseout', function() {
+            console.log('Mouse OUT no parent');
+        });
+    </script>
+</body>
+</html>

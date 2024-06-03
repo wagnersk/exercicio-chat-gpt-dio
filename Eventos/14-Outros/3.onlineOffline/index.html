@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Teste de Eventos Online e Offline</title>
+</head>
+<body>
+    <h1>Teste de Eventos Online e Offline</h1>
+
+    <button id="simulateOffline">Simular Offline</button>
+    <button id="simulateOnline">Simular Online</button>
+
+    <script>
+        // Evento offline
+        window.addEventListener('offline', function() {
+            console.log('Você está offline');
+            document.body.style.backgroundColor = 'lightgray';
+        });
+
+        // Evento online
+        window.addEventListener('online', function() {
+            console.log('Você está online');
+            document.body.style.backgroundColor = 'lightgreen';
+        });
+
+        // Funções para simular estados offline e online
+        document.getElementById('simulateOffline').addEventListener('click', function() {
+            window.dispatchEvent(new Event('offline'));
+        });
+
+        document.getElementById('simulateOnline').addEventListener('click', function() {
+            window.dispatchEvent(new Event('online'));
+        });
+    </script>
+</body>
+</html>

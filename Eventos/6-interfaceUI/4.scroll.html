@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Scroll Event Example</title>
+    <style>
+        body, html {
+            height: 200%; /* Aumenta a altura da página para permitir rolagem */
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+        #header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background-color: lightblue;
+            padding: 10px;
+            transition: background-color 0.3s;
+        }
+    </style>
+</head>
+<body>
+    <div id="header">Scroll Down</div>
+
+    <script>
+        window.addEventListener('scroll', function() {
+            var header = document.getElementById('header');
+            var scrollPosition = window.pageYOffset || document.documentElement.scrollTop;
+
+            if (scrollPosition > 50) { // Muda a cor do cabeçalho quando a página é rolada para além de 50px
+                header.style.backgroundColor = 'salmon';
+            } else {
+                header.style.backgroundColor = 'lightblue';
+            }
+        });
+    </script>
+</body>
+</html>

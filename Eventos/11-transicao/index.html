@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Transition Events Example</title>
+    <style>
+        #transitionBox {
+            width: 100px;
+            height: 100px;
+            background-color: blue;
+            transition: background-color 2s;
+        }
+    </style>
+</head>
+<body>
+    <div id="transitionBox" onclick="changeColor();"></div>
+    <script>
+        var box = document.getElementById('transitionBox');
+        
+        box.addEventListener('transitionstart', function(event) {
+            console.log('Transition start', event.propertyName);
+        });
+
+        box.addEventListener('transitionend', function(event) {
+            console.log('Transition ended', event.propertyName);
+        });
+
+        box.addEventListener('transitionrun', function(event) {
+            console.log('Transition run', event.propertyName);
+        });
+
+        function changeColor() {
+            // This toggles the background color between blue and red.
+            if (box.style.backgroundColor === 'red') {
+                box.style.backgroundColor = 'blue';
+            } else {
+                box.style.backgroundColor = 'red';
+            }
+        }
+    </script>
+</body>
+</html>

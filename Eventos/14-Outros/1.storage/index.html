@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Storage Event Example</title>
+</head>
+<body>
+    <button id="openNewTab">Abrir Nova Aba</button>
+    <button id="changeStorage">Alterar Storage</button>
+
+    <script>
+        document.getElementById('openNewTab').addEventListener('click', function() {
+            window.open('newtab.html', '_blank');
+        });
+
+        document.getElementById('changeStorage').addEventListener('click', function() {
+            localStorage.setItem('myKey', 'Novo valor ' + new Date().toLocaleTimeString());
+            console.log('Valor do localStorage alterado.');
+        });
+    </script>
+</body>
+</html>

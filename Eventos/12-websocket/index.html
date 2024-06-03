@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Eventos de WebSocket</title>
+</head>
+<body>
+    <script>
+        var socket = new WebSocket('wss://echo.websocket.org');  // Usando um servidor de echo público para exemplo
+        socket.addEventListener('open', function() {
+            console.log('Conexão WebSocket aberta');
+            socket.send('Hello, server!');  // Envia uma mensagem ao servidor
+        });
+        socket.addEventListener('message', function(event) {
+            console.log('Mensagem recebida:', event.data);  // Recebe e exibe a mensagem do servidor
+        });
+        socket.addEventListener('close', function() {
+            console.log('Conexão WebSocket fechada');
+        });
+        socket.addEventListener('error', function(error) {
+            console.log('Erro na WebSocket:', error);
+        });
+    </script>
+</body>
+</html>
+<!-- 
+    1.Inicialização do WebSocket: Aqui você cria uma nova conexão WebSocket 
+    apontando para o URL wss://echo.websocket.org, que é um servidor público de eco. 
+    Esse servidor simplesmente retorna qualquer mensagem que você enviar.
+
+
+	2.	Evento ‘open’: Este evento é disparado quando a conexão WebSocket é aberta com sucesso.
+     Dentro do callback, você está enviando a mensagem 'Hello, server!'
+     ao servidor e exibindo uma mensagem no console indicando que a conexão foi aberta.
+
+    3.	Evento ‘message’: Este evento é disparado sempre que uma mensagem é recebida do servidor.
+    O objeto event contém a propriedade data que tem a mensagem recebida. 
+    Neste exemplo, você está simplesmente exibindo a mensagem no console.
+
+    4.	Evento ‘close’: Este evento é disparado quando a conexão WebSocket é fechada.
+     Isso pode acontecer se o servidor ou o cliente decidir fechar a conexão. 
+    O callback exibe uma mensagem no console informando que a conexão foi fechada.
+
+    5.	Evento ‘error’: Este evento é disparado quando ocorre um erro na conexão WebSocket.
+    O objeto error pode fornecer informações adicionais sobre o que deu errado.
+    Aqui, você está exibindo a mensagem de erro no console.
+
+    Resumo do Fluxo
+
+	1.	Criação: Uma nova conexão WebSocket é criada.
+	2.	Abertura (‘open’): Quando a conexão é aberta, uma mensagem é enviada ao servidor.
+	3.	Mensagens (‘message’): Mensagens do servidor são recebidas e exibidas no console.
+	4.	Fechamento (‘close’): Quando a conexão é fechada, uma mensagem de fechamento é exibida.
+	5.	Erros (‘error’): Qualquer erro encontrado é capturado e exibido no console.
+
+Este código estabelece uma comunicação bidirecional em tempo real com um servidor WebSocket, permitindo o envio e recebimento de mensagens de forma assíncrona.
+
+
+ -->

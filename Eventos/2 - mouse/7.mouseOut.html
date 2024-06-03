@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Evento de Clique</title>
+</head>
+<body>
+    <button id="myButton">Passe o mouse sobre o botão, evento ao Sair </button>
+    <script>
+        const mouseElement = document.getElementById('myButton')
+        mouseElement.addEventListener('mouseout', function() {
+        console.log('Mouse saiu do elemento');
+        });
+    </script>
+</body>
+</html>

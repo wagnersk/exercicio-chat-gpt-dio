@@ -17,6 +17,27 @@
         video.addEventListener('pause', function() {
             console.log('Vídeo pausado');
         });
+        video.addEventListener('ended', function() {
+            console.log('Vídeo finalizado');
+        });
+        video.addEventListener('timeupdate', function() {
+            console.log('Vídeo posicao de tempo atualizado');
+        });
+        video.addEventListener('volumechange', function() {
+            console.log('Volume alterado');
+        });
+        video.addEventListener('durationchange', function() {
+            console.log('Duração de mídia alterada');
+        });
+        video.addEventListener('loadedmetadata', function() {
+            console.log(`A duração e as dimensões da mídia e das faixas são agora conhecidas.`);
+        });
+        video.addEventListener('canplay', function() {
+            console.log('Mídia pronta para ser reproduzida sem interrupçõ');
+        });
+        video.addEventListener('canplaythrough', function() {
+            console.log('Mídia pronta para reprodução continua até o fim');
+        });
     </script>
 </body>
 </html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Evento Change</title>
+</head>
+<body>
+    <form id="myForm">
+        <label for="optionSelect">Escolha uma opção:</label>
+        <select id="optionSelect" name="option">
+            <option value="opcao1">Opção 1</option>
+            <option value="opcao2">Opção 2</option>
+            <option value="opcao3">Opção 3</option>
+        </select>
+        <button type="submit">Enviar</button>
+    </form>
+    <script>
+        document.getElementById('optionSelect').addEventListener('change', function() {
+            console.log('Opção selecionada:', this.value);
+            alert('Você selecionou: ' + this.value);
+        });
+    </script>
+</body>
+</html>

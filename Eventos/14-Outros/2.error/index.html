@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Error Event Example</title>
+</head>
+<body>
+    <script>
+        window.addEventListener('error', function(event) {
+            console.log('Erro detectado:', event.message);
+        });
+
+        // Provocar um erro
+        nonExistentFunction();
+    </script>
+</body>
+</html>
